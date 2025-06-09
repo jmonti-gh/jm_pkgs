@@ -1,4 +1,5 @@
 """
+jm_logger
 Advanced log management module with automatic rotation and directory creation.
 
 Features:
