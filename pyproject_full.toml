@@ -1,0 +1,159 @@
+## Claude
+
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "jm_utils"
+version = "0.1.0"
+description = "Utilities I use frequently"
+readme = "README.md"
+license = {text = "MIT"}
+authors = [
+    {name = "Jorge Monti", email = "jorgitomonti@gmail.com"}
+]
+maintainers = [
+    {name = "Jorge Monti", email = "jorgitomonti@gmail.com"}
+]
+keywords = ["utilities", "tools", "helpers"]
+classifiers = [
+    # Estado de desarrollo
+    "Development Status :: 3 - Alpha",
+    
+    # Audiencia objetivo
+    "Intended Audience :: Developers",
+    "Intended Audience :: End Users/Desktop",
+    
+    # Licencia
+    "License :: OSI Approved :: MIT License",
+    
+    # Sistemas operativos soportados
+    "Operating System :: OS Independent",
+    
+    # Lenguaje de programación
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3 :: Only",
+    
+    # Temas/categorías
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "Topic :: Utilities",
+    
+    # Tipo de contenido
+    "Typing :: Typed",
+    
+    # Estabilidad de la interfaz
+    "Natural Language :: Spanish",
+]
+requires-python = ">=3.11"
+dependencies = [
+    # Agrega aquí las dependencias necesarias
+    # "requests>=2.25.0",
+    "numpy>=1.26.4",
+	"pandas>=2.1.3",
+	"rich>=14.0.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=6.0",
+    "pytest-cov>=2.0",
+    "black>=21.0",
+    "flake8>=3.8",
+    "mypy>=0.900",
+]
+test = [
+    "pytest>=6.0",
+    "pytest-cov>=2.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/jmonti-gh/jm_pkgs"
+Repository = "https://github.com/jmonti-gh/jm_pkgs"
+Issues = "https://github.com/jmonti-gh/jm_pkgs/issues"
+Changelog = "https://github.com/jmonti-gh/jm_pkgs/blob/main/jm_utils/CHANGELOG.md"
+
+[project.scripts]
+# Opcional: comandos de línea de comandos
+# jm-tool = "jm_utils.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+include = ["jm_utils*"]
+
+[tool.setuptools.package-dir]
+"" = "src"
+
+[tool.black]
+line-length = 88
+target-version = ['py38']
+include = '\.pyi?$'
+extend-exclude = '''
+/(
+  # Directorios a excluir
+  \.eggs
+  | \.git
+  | \.hg
+  | \.mypy_cache
+  | \.tox
+  | \.venv
+  | _build
+  | buck-out
+  | build
+  | dist
+)/
+'''
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py", "*_test.py"]
+python_classes = ["Test*"]
+python_functions = ["test_*"]
+addopts = [
+    "--strict-markers",
+    "--strict-config",
+    "--cov=jm_utils",
+    "--cov-report=term-missing",
+    "--cov-report=html",
+]
+
+[tool.mypy]
+python_version = "3.8"
+warn_return_any = true
+warn_unused_configs = true
+disallow_untyped_defs = true
+disallow_incomplete_defs = true
+check_untyped_defs = true
+disallow_untyped_decorators = true
+no_implicit_optional = true
+warn_redundant_casts = true
+warn_unused_ignores = true
+warn_no_return = true
+warn_unreachable = true
+strict_equality = true
+
+[tool.coverage.run]
+source = ["jm_utils"]
+omit = [
+    "*/tests/*",
+    "*/test_*",
+    "*/__init__.py",
+]
+
+[tool.coverage.report]
+exclude_lines = [
+    "pragma: no cover",
+    "def __repr__",
+    "if self.debug:",
+    "if settings.DEBUG",
+    "raise AssertionError",
+    "raise NotImplementedError",
+    "if 0:",
+    "if __name__ == .__main__.:",
+    "class .*\bProtocol\\):",
+    "@(abc\\.)?abstractmethod",
+]
+
+## jm- Probar los pyproject.toml
+# python -c "import tomllib; print(tomllib.load(open('pyproject.toml', 'rb')))"

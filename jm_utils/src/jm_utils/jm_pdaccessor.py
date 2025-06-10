@@ -16,6 +16,10 @@ class CustomAccessor:
     def __init__(self, pandas_obj):
         self._obj = pandas_obj
 
+## OJO
+# C:\Users\jmonti\Documents\mchi\Dev\git_github_gitlab\PortableGit\__localRepos\jm_pkgs\jm_utils\src\jm_utils\jm_pdaccessor.py:85: FutureWarning: is_categorical_dtype is deprecated and will be removed 
+# in a future version. Use isinstance(dtype, CategoricalDtype) instead self._obj[col].nunique() if pd.api.types.is_categorical_dtype(self._obj[col]) or
+
 
     def infomax(self):
         ''' Get more data similar to self._obj.info() '''

@@ -1,0 +1,19 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "jm_utils"
+version = "0.1.0"
+description = "Utilidades personales de Jorge Monti"
+authors = [{name = "Jorge Monti", email = "jorge.monti@email.com"}]
+requires-python = ">=3.11"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+include = ["jm_utils*"]
+
+[tool.setuptools.package-dir]
+"" = "src"
+
+## Claude
