@@ -8,6 +8,9 @@ Methods:
     .rename_columns(): mapping(dicts), prefix=, suffix=
 """
 
+__version__ = "0.1.0"
+__author__ = "Jorge Monti"
+
 import pandas as pd
 ## qwen
 
