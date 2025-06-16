@@ -1,3 +1,15 @@
+'''
+jm_richprt
+'''
+
+__version__ = "0.1.0"
+__description__ = "Utilities I use frequently - Several modules"
+__author__ = "Jorge Monti"
+__email__ = "jorgitomonti@gmail.com"
+__license__ = "MIT"
+__status__ = "Development"
+__python_requires__ = ">=3.11"
+__last_modified__ = "2025-06-15"
 
 
 # Third-Party Libs

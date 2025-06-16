@@ -10,14 +10,33 @@ Methods:
 
 __version__ = "0.1.0"
 __author__ = "Jorge Monti"
+__description__ = "Utilities I use frequently - Several modules"
+__email__ = "jorgitomonti@gmail.com"
+__license__ = "MIT"
+__status__ = "Development"
+__python_requires__ = ">=3.11"
+__last_modified__ = "2025-06-15"
+
 
 import pandas as pd
 ## qwen
 
 @pd.api.extensions.register_dataframe_accessor("jm")
-class CustomAccessor:
+class JMAccessor:
     def __init__(self, pandas_obj):
         self._obj = pandas_obj
+
+    def generals(self):
+        """Información extendida del DataFrame"""
+        return {
+            'shape': self._obj.shape,
+            'memory_usage': self._obj.memory_usage(deep=True).sum(),
+            'memory_usage_mb': self._obj.memory_usage(deep=True).sum() / 1024**2,
+            'null_count': self._obj.isnull().sum().sum(),
+            'null_counts': self._obj.isnull().sum().to_dict(),
+            'columns': list(self._obj.columns),
+            'dtypes': self._obj.dtypes.to_dict()
+        }
 
 ## OJO
 # C:\Users\jmonti\Documents\mchi\Dev\git_github_gitlab\PortableGit\__localRepos\jm_pkgs\jm_utils\src\jm_utils\jm_pdaccessor.py:85: FutureWarning: is_categorical_dtype is deprecated and will be removed 

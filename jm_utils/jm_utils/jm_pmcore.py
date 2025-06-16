@@ -1,14 +1,21 @@
-''' This is a Password Manager Core Module: pmcore.py
+''' 
+This is a Password Manager Core Module: pmcore.py
 
 It stores all data (Service, Username, Password, URL, dt_pwd, Notes, next_pwd, and dt_next_pwd)
 in a DF, which is saved in an encrypted file (dt: datetime).
 In turn, passwords are saved with their own encryption.
 
-I see practical import it under the pmc alias, ex.: import pmcore as pmc'''
+I see practical import it under the pmc alias, ex.: import pmcore as pmc
+'''
 
-__author__ = 'Jorge Monti'
-__version__ = 2.5
-
+__author__ = "Jorge Monti"
+__version__ = "0.2.5"
+__description__ = "Utilities I use frequently - Several modules"
+__email__ = "jorgitomonti@gmail.com"
+__license__ = "MIT"
+__status__ = "Development"
+__python_requires__ = ">=3.11"
+__last_modified__ = "2025-06-15"
 
 # Built-in Libraries
 import datetime as dtm

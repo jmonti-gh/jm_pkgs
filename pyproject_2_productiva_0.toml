@@ -1,0 +1,32 @@
+[build-system]
+requires = ["setuptools>=64.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "jm_utils"
+version = "0.1.0"
+description = "Utilities I use frequently - jm"
+authors = [{name = "Jorge Monti", email = "jorgitomonti@gmail.com"}]
+keywords = ["utilities", "tools", "helpers"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: End Users/Desktop",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3 :: Only",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "Topic :: Utilities",
+]
+requires-python = ">=3.11"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+include = ["jm_utils*"]
+
+[tool.setuptools.package-dir]
+"" = "src"
+
+## jm- Probar los pyproject.toml
+# python -c "import tomllib; print(tomllib.load(open('pyproject.toml', 'rb')))"
