@@ -4,6 +4,7 @@ pyproject.toml
 jm_utils/__init__.py
 jm_utils/jm_datetime.py
 jm_utils/jm_environtment.py
+jm_utils/jm_img.py
 jm_utils/jm_logger.py
 jm_utils/jm_numpy.py
 jm_utils/jm_pandas.py
