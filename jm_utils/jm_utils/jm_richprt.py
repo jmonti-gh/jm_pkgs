@@ -12,8 +12,12 @@ __python_requires__ = ">=3.11"
 __last_modified__ = "2025-06-15"
 
 
+# Standard Libs
+from datetime import datetime
+
 # Third-Party Libs
 from rich.console import Console
+
 
 console = Console()
 
@@ -32,8 +36,19 @@ def prt_msg(kind='info', msg='Default message'):
         console.print(f"[bold blue]i[/bold blue] [blue]Info >[/blue]  {msg}")
         # console.print(f"[bold blue]i[/bold blue] [blue]>[/blue]  {msg}")
 
-def prt_title():
-    pass
+
+def prt_title_log(prg, title, log='No log'):
+    timestamp = datetime.now().strftime('%b %d %H:%M:%S')
+    console.print(
+        f'''\n[cyan]{timestamp} >[/cyan] Iniciando la ejecución de: [cyan]{prg}[/cyan]
+[cyan]~~~~~[/cyan] {title} [cyan]~~~~~[/cyan]
+                [cyan]>[/cyan] LOG: [cyan]{log}[/cyan]\n'''
+     )
+    
+
+def prt_title(title):
+    console.print(f"\n[cyan]~~~~~[/cyan] {title} [cyan]~~~~~[/cyan]\n")
+
 
 
 def demo_prt_msg():
