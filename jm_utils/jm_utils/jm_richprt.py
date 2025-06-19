@@ -1,6 +1,7 @@
 '''
 jm_richprt
 '''
+# copilot
 
 __version__ = "0.1.0"
 __description__ = "Utilities I use frequently - Several modules"
@@ -22,19 +23,29 @@ from rich.console import Console
 console = Console()
 
 
-def prt_msg(kind='info', msg='Default message'):
+def prtmsg(kind='inf', msg='Default message', mark=''):
+    ''' Prints a message with a specific kind (ok, error, warning, info) and an optional mark.
+        kind: 'ok', 'err', 'warn', 'inf'
+    '''
+    if kind not in ('ok', 'err', 'warn', 'inf'):
+        raise ValueError(f"Invalid kind: {kind}. Must be one of 'ok', 'err', 'warn', 'info'.")
+    
     if kind == "ok":
-        console.print(f"[bold green]#[/bold green] [green]OK >[/green]  {msg}")
-        # console.print(f"[bold green]#[/bold green] [green]>[/green]  {msg}")
-    elif kind == "error":
-        console.print(f"[bold red]X[/bold red] [red]ERROR >[/red]  {msg}")
-        # console.print(f"[bold red]X[/bold red] [red]>[/red]  {msg}")
-    elif kind == "warning":
-        console.print(f"[bold yellow]![/bold yellow] [yellow]Warning >[/yellow]  {msg}")
-        # console.print(f"[bold yellow]![/bold yellow] [yellow]>[/yellow]  {msg}")
-    elif kind == "info":
-        console.print(f"[bold blue]i[/bold blue] [blue]Info >[/blue]  {msg}")
-        # console.print(f"[bold blue]i[/bold blue] [blue]>[/blue]  {msg}")
+        if not mark:
+            mark = '#'
+        console.print(f"[bold green]{mark}[/bold green] [green]OK >[/green]  {msg}")
+    elif kind == "err":
+        if not mark:
+            mark = 'X'
+        console.print(f"\n [bold red]{mark}[/bold red] [red]ERROR >[/red]  {msg}\n")
+    elif kind == "warn":
+        if not mark:
+            mark = '!'
+        console.print(f"[bold yellow]{mark}[/bold yellow] [yellow]Warning >[/yellow]  {msg}")
+    elif kind == "inf":
+        if not mark:
+            mark = 'i'
+        console.print(f"\n [bold blue]{mark}[/bold blue] [blue]Info >[/blue]  {msg}\n")
 
 
 def prt_title_log(prg, title, log='No log'):
@@ -51,11 +62,11 @@ def prt_title(title):
 
 
 
-def demo_prt_msg():
-    for knd in 'ok', 'error', 'warning', 'info':
+def demo_prtmsg():
+    for knd in 'ok', 'err', 'warn', 'inf':
         print()
-        prt_msg(knd)
+        prtmsg(knd)
 
 
 if __name__ == '__main__':
-    demo_prt_msg()
+    demo_prtmsg()
